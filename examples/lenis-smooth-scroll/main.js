@@ -6,12 +6,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Drive Lenis from GSAP's ticker instead of `autoRaf: true` so Lenis and
-// ScrollTrigger update on the same frame (no jitter on pinned/scrubbed triggers).
-const lenis = new Lenis({ autoRaf: false })
+// Drive Lenis from GSAP's ticker so Lenis and ScrollTrigger update on the same frame.
+const lenis = new Lenis() // no autoRaf here
 
 lenis.on('scroll', ScrollTrigger.update)
-gsap.ticker.add((time) => lenis.raf(time * 1000))
+
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000) // GSAP gives seconds, Lenis wants ms
+})
 gsap.ticker.lagSmoothing(0)
 
 gsap.utils.toArray('.box').forEach((box) => {

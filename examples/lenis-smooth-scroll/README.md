@@ -21,11 +21,13 @@ const lenis = new Lenis({ autoRaf: true })
 
 ## Using Lenis with ScrollTrigger
 
-With ScrollTrigger, turn `autoRaf` off and drive Lenis from `gsap.ticker`, so
+With ScrollTrigger, leave `autoRaf` off (the default) and drive Lenis from `gsap.ticker`, so
 both libraries update on the same frame:
 
 ```js
 lenis.on('scroll', ScrollTrigger.update)
-gsap.ticker.add((time) => lenis.raf(time * 1000))
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000) // GSAP gives seconds, Lenis wants ms
+})
 gsap.ticker.lagSmoothing(0)
 ```
