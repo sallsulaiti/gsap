@@ -51,6 +51,7 @@ Typography:
 - Default font: Cairo, weight 900 for headlines and 700 for labels and body. Cairo is a bold Arabic font with clear letterforms at display sizes.
 - Use the font when rendering the slides to images, so the font is baked into the PNG files. The viewer does not need the font installed. Do not rely on online font imports, since they fail when offline.
 - If the user's brand uses another font, use that one instead, loaded the same way.
+- Cairo is bundled in this skill's `fonts/` folder: `cairo-arabic-*.woff2` for Arabic and `cairo-latin-*.woff2` for digits, handles, and Latin text, in weights 700 and 900. Load both subsets with `@font-face` and `url()` pointing at those files.
 - Headlines: 110 to 130 px on covers, 90 to 120 px on content slides. Body text: 40 to 50 px. Gray label above the headline: 36 to 44 px.
 - Right-to-left layout.
 - Keep at least 80 px margin from every edge.
