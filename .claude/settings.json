@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "majed-video": {
+      "source": {
+        "source": "github",
+        "repo": "majedphotos/video-ad-editor"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "majed-video@majed-video": true
+  }
+}
